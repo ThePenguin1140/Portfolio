@@ -6,12 +6,15 @@
    <title>title</title>
  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css" type="text/css">
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js" type="text/js">
+ <link rel="import" href="bower_components/Pdf-Viewer/dist/pdf-viewer.html">
  <style type="text/css">
 
  </style>
  </head>
  <body>
+	 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+	 <script src="bower_components/Pdf-Viewer/dist/js/pdf/pdf.js"></script>
+
    <div class="ui stackable doubling four column grid container">
      <div class="sixteen wide column">
        <div class="ui raised segment">
@@ -29,7 +32,7 @@
 					 <li>Desiging the user interface and expierence of the application</li>
 				 </ul>
 				 <div class="ui divider"></div>
-				 <iframe src="./pdf/home.pdf" style="width:600px; height:500px;" frameborder="0"></iframe>
+				 <pdf-viewer id="trackwell-home" path="pdf/home.pdf"></pdf-viewer>
        </div>
      </div>
      <div class="sixteen wide column">
