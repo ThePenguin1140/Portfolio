@@ -16,6 +16,12 @@
 		h1 {
 			height: 200px;
 		}
+
+		img {
+			background: gray;
+			padding: 5px;
+			margin: 5px;
+		}
 	</style>
 </head>
 <body>
@@ -109,14 +115,15 @@
 				autoplaySpeed: 3000,
 				lazyLoad: 'ondemand',
 				variableWidth: true,
-				adaptiveHeight: true,
 				infinite: true,
 				dots: true,
+				centerMode: true,
 				responsive: [
 					{
 						breakpoint: 600,
 						settings: {
-							slidesToShow: 1
+							arrows: false,
+							slidesToShow: 1,
 						}
 					}
 				]
