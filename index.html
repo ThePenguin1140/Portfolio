@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>title</title>
+	<title>title</title
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=font1|font2|etc" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css" type="text/css">
 	<link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
@@ -21,6 +21,28 @@
 			background: gray;
 			padding: 5px;
 			margin: 5px;
+		}
+
+		#stanley-wrapper {
+			width: 810px;
+			height: 690px;
+			border: 1px solid black;
+			overflow: hidden;
+		}
+
+		#stanley-frame {
+			-moz-transform: scale(0.75);
+			-o-transform: scale(0.75);
+			-webkit-transform: scale(0.75);
+			transform: scale(0.75);
+
+			-moz-transform-origin: 0 0;
+			-o-transform-origin: 0 0;
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+
+			width: 1080px;
+			height: 920px;
 		}
 	</style>
 </head>
@@ -89,8 +111,18 @@
 			</div>
 			<div class="sixteen wide column">
 				<div class="ui raised segment">
-					<h2>Stanley</h2>
+					<h2><a href="https://thepenguin1140.github.io/Stanley/">Stanley</a></h2>
 					<p>The Stanley project is the accumulation of a self directed information visualization course at the University of New Brunswick. Naturally I was responsible for the design and development of this novel and interactive information visualization application using D3.js. The application aimed to give users the ability to explore Stanley Cup winnning hockey teams and the player trades between them.</p>
+					<div class="ui divider"></div>
+					<div class="ui computer only grid">
+						<div id="stanley-wrapper">
+							<iframe id="stanley-frame" src="https://thepenguin1140.github.io/Stanley/" allowfullscreen="true" frameborder="1"></iframe>
+						</div>
+					</div>
+					<div class="ui mobile only grid">
+						<p>You can see this project in action by clicking on the title or visiting this page on your computer.</p>
+						<div class="ui divider"></div>
+					</div>
 				</div>
 			</div>
 			<div class="sixteen wide column">
