@@ -5,11 +5,13 @@
 	<title>Jason's Portfolio</title
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Josefin+Slab:regular" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.css" type="text/css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/components/modal.min.css" type="text/css">
 	<link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css">
 	<link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css">
 	<style type="text/css">
 		body {
 			padding-top: 50px;
+			background: #272822;
 			background-image: url(bkg.png):
 		}
 
@@ -27,7 +29,7 @@
 			color: whitesmoke;
 		}
 
-		img:not(#logo):not(.parallax){
+		img:not(#logo):not(.parallax):not(.image){
 			background: gray;
 			padding: 5px;
 			margin: 5px;
@@ -41,6 +43,28 @@
 			left: -150px;
 			width: 100%;
 			z-index: -1;
+		}
+
+		.ui.dimmer {
+			overflow: hidden !important;
+		}
+
+		.ui.modal {
+			background: transparent;
+			min-height: 60%;
+		}
+
+		.ui.modal > .image.content {
+			padding: 0;
+			margin: 0;
+			overflow: hidden;
+			background: transparent;
+		}
+
+		.image {
+			height: 100%;
+			margin: auto;
+			max-height: 90%;
 		}
 
 		#stanley-wrapper {
@@ -75,7 +99,8 @@
 	<div class="ui container">
 
 		<h1 class="ui centered aligned header">
-			<img id="logo" src="img/logo.png" alt="">
+			<img
+			id="logo" src="img/logo.png" alt="">
 			<p>Jason Wuertz</p>
 		</h1>
 		<div class="ui divider"></div>
@@ -90,16 +115,16 @@
 					<div class="ui stackable doubling grid container">
 						<div class="ui eight wide column slick-carousel">
 							<div>
-								<img src="img/trackwell-profile.png"/>
+								<img onclick="ToggleModal(this)" src="img/trackwell-profile.png"/>
 							</div>
 							<div>
-								<img src="img/trackwell-profile2.png"/>
+								<img onclick="ToggleModal(this)" src="img/trackwell-profile2.png"/>
 							</div>
 							<div>
-								<img src="img/trackwell-home.png"/>
+								<img onclick="ToggleModal(this)" src="img/trackwell-home.png"/>
 							</div>
 							<div>
-								<img src="img/trackwell-search.png"/>
+								<img onclick="ToggleModal(this)" src="img/trackwell-search.png"/>
 							</div>
 						</div>
 						<div class="ui eight wide column">
@@ -124,16 +149,16 @@
 					<h2>Inventory and Geographic Data Visualization</h2>
 					<div class="slick-carousel">
 						<div>
-							<img src="img/remsoft-areagraph.png" alt="">
+							<img onclick="ToggleModal(this)" src="img/remsoft-areagraph.png" alt="">
 						</div>
 						<div>
-							<img src="img/remsoft-areagraph2.png" alt="">
+							<img onclick="ToggleModal(this)" src="img/remsoft-areagraph2.png" alt="">
 						</div>
 						<div>
-							<img src="img/remsoft-gundeath.png" alt="">
+							<img onclick="ToggleModal(this)" src="img/remsoft-gundeath.png" alt="">
 						</div>
 						<div>
-							<img src="img/remsoft-map.png" alt="">
+							<img onclick="ToggleModal(this)" src="img/remsoft-map.png" alt="">
 						</div>
 					</div>
 					<div class="ui divider"></div>
@@ -147,13 +172,13 @@
 						<div class="ui eight wide column">
 							<div class="slick-carousel">
 								<div>
-									<img src="img/deltaware-eval.png" alt="">
+									<img onclick="ToggleModal(this)" src="img/deltaware-eval.png" alt="">
 								</div>
 								<div>
-									<img src="img/deltaware-eval2.png" alt="">
+									<img onclick="ToggleModal(this)" src="img/deltaware-eval2.png" alt="">
 								</div>
-								<div><img src="img/deltaware-report.png" alt=""></div>
-								<div><img src="img/deltaware-report2.png" alt=""></div>
+								<div><img onclick="ToggleModal(this)" src="img/deltaware-report.png" alt=""></div>
+								<div><img onclick="ToggleModal(this)" src="img/deltaware-report2.png" alt=""></div>
 							</div>
 						</div>
 						<div class="ui eight wide column">
@@ -181,16 +206,22 @@
 		</div>
 	</div>
 
+	<div class="ui fullscreen modal" onclick="CloseModal()">
+		<div class="image content">
+			<img onclick="ToggleModal(this)" src="" alt="" class="image">
+		</div>
+	</div>
+
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/semantic.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.1/dist/components/modal.min.js"></script>
 	<script src="bower_components/slick-carousel/slick/slick.min.js"></script>
 	<script src="bower_components/scroll-parallax/dist/Parallax.min.js"></script>
 
 	<script>
+
 		$(document).ready(function() {
 			var p = new Parallax('.parallax').init();
-
-			console.log( p );
 
 			$('.slick-carousel').slick({
 				slidesToShow: 3,
@@ -213,7 +244,19 @@
 					}
 				]
 			});
+
+			$('.ui.fullscreen.modal').modal();
 		});
+
+		function ToggleModal(element) {
+			var modal = $('.ui.fullscreen.modal');
+			modal.find('img').attr('src', element.src);
+			$('.ui.fullscreen.modal').modal('toggle');
+		}
+
+		function CloseModal() {
+			$('.ui.fullscreen.modal').modal('hide');
+		}
 	</script>
 </body>
 </html>
