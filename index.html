@@ -12,7 +12,18 @@
 		body {
 			padding-top: 50px;
 			background: #272822;
-			background-image: url(bkg.png):
+		}
+
+		#parallax-container:before {
+			content: "";
+			z-index: 1;
+		  display: block;
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  min-width: 200vw;
+			min-height: 200vh;
+		  background: rgba(0,0,0,0.65);
 		}
 
 		p {
@@ -95,7 +106,7 @@
 </head>
 <body>
 
-	<figure>
+	<figure id="parallax-container">
 		<img class="parallax" src="img/src.png" alt="">
 	</figure>
 
